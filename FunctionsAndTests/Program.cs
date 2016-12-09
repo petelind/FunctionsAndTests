@@ -12,9 +12,8 @@ namespace FunctionsAndTests
 
         static void Main(string[] args)
         {
-            /// В ЭТОМ КОДЕ ЕСТЬ КРАЙНЕ НЕПРИЯТНЫЕ ОШИБКИ!!!
-            /// Подумай, а) что за ошибки здесь есть и б) как их исправить?
-            /// TODO: What are the errors in design & how to fix them?
+
+            /// TODO: Как сделать чтоб программа завершалась по вводу 00? 
             
             // нам понадобится переменная для ширины двора, и она может быть дробной
             double width;
@@ -79,6 +78,7 @@ namespace FunctionsAndTests
                 Console.WriteLine("Final price for your order: " + finalPrice + "$\n\n\n" ); 
 
             }
+            Console.ReadKey();
         }
 
     }
