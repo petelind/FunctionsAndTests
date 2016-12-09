@@ -12,10 +12,9 @@ namespace FunctionsAndTests
 
         static void Main(string[] args)
         {
-            /// В ЭТОМ КОДЕ ЕСТЬ КРАЙНЕ НЕПРИЯТНЫЕ ОШИБКИ!!!
-            /// Подумай, а) что за ошибки здесь есть и б) как их исправить?
-            /// TODO: What are the errors in design & how to fix them?
             
+            /// Это окончательная версия со всеми исправленными ошибками, но!..
+            /// TODO: Сделай так, чтоб программа завершалась если введены 00
             // нам понадобится переменная для ширины двора, и она может быть дробной
             double width;
             // нам понадобится переменная для длины двора, и она может быть дробной
@@ -33,14 +32,32 @@ namespace FunctionsAndTests
                 // затем читаем ширину в строковую переменную
                 userInput = Console.ReadLine();
                 // а теперь конвертируем строку в дробь
-                width = Convert.ToDouble(userInput);
+                // 
+                if (double.TryParse(userInput, out width))
+                {
+                    width = Convert.ToDouble(userInput);
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input, only numbers are allowed! Starting over...\n\n");
+                    continue;
+                }
 
-                // Информируем пользователя, что он должен ввести ширину
+                // Информируем пользователя, что он должен ввести длину
                 Console.WriteLine("Enter length of the yard: ");
                 // затем читаем ширину в строковую переменную
                 userInput = Console.ReadLine();
+
                 // а теперь конвертируем строку в дробь
-                length = Convert.ToDouble(userInput);
+                if (double.TryParse(userInput, out length))
+                {
+                    length = Convert.ToDouble(userInput);
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input, only numbers are allowed! Starting over...\n\n");
+                    continue;
+                }
 
                 // Теперь мы вызываем функцию EstimateOrder (оценить заказ) и...
                 // сохраняем результат в нашу переменную:
@@ -49,6 +66,8 @@ namespace FunctionsAndTests
                 Console.WriteLine("Final price for your order: " + finalPrice + "$\n\n\n" ); 
 
             }
+
+            Console.ReadKey();
         }
 
     }

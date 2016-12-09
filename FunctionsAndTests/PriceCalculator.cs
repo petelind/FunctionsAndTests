@@ -30,7 +30,7 @@ namespace FunctionsAndTests
             // теперь мы можем посчитать цену... 
             price = _width * _length * pricePerMeter;
             Console.WriteLine("_________________________");
-            Console.WriteLine("Base price for this order: " + price);
+            Console.WriteLine("Base price for this order: " + price + "$");
 
             // и если она меньше или равна нулю - мы возвращаем -1 (то есть ошибка)
             if (price <= 0)
